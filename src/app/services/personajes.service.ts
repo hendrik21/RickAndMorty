@@ -16,4 +16,8 @@ export class PersonajesService {
   obtenerPersonajes(): Observable<any> {
     return this.httpClient.get<any>(this.URL)
   }
+
+  obtenerPersonaje(idPersonaje: number): Observable<Personaje> {
+    return this.httpClient.get<Personaje>(this.URL + '/'+idPersonaje);
+  }
 }

@@ -11,4 +11,5 @@ export interface Personaje {
   episode: string[];
   url: string[];
   created: string[];
+
 }

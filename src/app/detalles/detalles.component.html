@@ -1,1 +1,27 @@
-<p>detalles works!</p>
+<mat-card class = "mt-2">
+        <div class = "d-flex justify-content-start">
+          <img src="{{personaje.image}}">
+          <div class = "informacion-principal m-2">
+            <mat-card-title>{{personaje.name}}</mat-card-title>
+            <mat-card-subtitle>{{personaje.status}}</mat-card-subtitle>
+            <mat-list>
+              <mat-list-item>{{personaje.gender}}</mat-list-item>
+              <mat-list-item>{{personaje.species}}</mat-list-item>
+              <mat-list-item>{{personaje.location.name}}</mat-list-item>
+              <mat-list-item>{{personaje.episode[personaje.episode.length - 1]}}</mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+        <mat-card-content>
+          <p class = "text-info mt-2">Lista de episodios</p>
+          <div class = "container">
+            <div class = "row">
+              <div class = "col-sm-12 col-lg-6" *ngFor = "let episodio of personaje.episode">
+                <mat-list>
+                  <mat-list-item>{{episodio}}</mat-list-item>
+                </mat-list>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
