@@ -1,14 +1,20 @@
 # RickAndMorty
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
+software version:
+- TypeScript 4.7.4
+- RXjs 7.5.7
+- Node: 18.12.0
+- Package Manager: npm 8.19.2
+- Angular CLI 14.2.9
+- Bootstrap 5
+- Angular Material 13.0.0
+- File Saver 2.0.5
+- Angular Font Awesome 0.12.0
+
 
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run "npm install" to install all dependencies required.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. 
 
 ## Build
 
