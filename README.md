@@ -11,6 +11,19 @@ software version:
 - File Saver 2.0.5
 - Angular Font Awesome 0.12.0
 
+#Components
+- AppComponent: It contains the character list. There are 4 methods.
+  - constructor: it initializes some dependencies.
+  - ngOnInit: it allows to visualize some Font Awesome icons and it makes the HTTP request to get all the character data and their related episodes.
+  - visualizarDetalles: it loads the component named "detallesComponent".
+  - visualizarLocalizacion: it loads the component named "localizacionComponent".
+  - guardarFavorito: it downloads a JSON that contains an specific character data.
+- DetallesComponent: It contains more information based on an specific character that the user selected previously in app.component. There are 2 methods
+  - constructor: it initializes some dependencies.
+  - ngOnInit: It makes the HTTP request to get the character information.
+- LocalizacionComponent: It contains more information based on an specific character location. There are 2 methods
+  - constructor: it initializes some dependencies.
+  - ngOnInit: It makes the HTTP request to get the location information.
 
 ## Development server
 Run "npm install" to install all dependencies required.
