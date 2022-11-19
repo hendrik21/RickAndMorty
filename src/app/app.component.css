@@ -11,3 +11,8 @@ fa-icon {
 .informacion-principal {
   width: 25vw;
 }
+
+fa-icon:hover {
+  color: blue;
+  cursor: pointer;
+}

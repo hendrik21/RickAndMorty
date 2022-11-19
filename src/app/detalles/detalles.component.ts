@@ -1,7 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {PersonajesService} from "../services/personajes.service";
-import {Personaje} from "../interfaces/personaje";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
@@ -14,7 +12,6 @@ export class DetallesComponent implements OnInit {
   public URL: string = 'https://rickandmortyapi.com/api/character';
 
   constructor(@Inject(MAT_DIALOG_DATA) public idPersonaje: number,
-              private personajesService: PersonajesService,
               private httpClient: HttpClient
               ) { }
 

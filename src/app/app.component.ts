@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {switchMap, tap, map, Observable, forkJoin} from "rxjs"
+import {DomSanitizer, } from "@angular/platform-browser";
 import { HttpClient } from '@angular/common/http';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {FaIconLibrary} from "@fortawesome/angular-fontawesome";
 import {faCircleInfo, faLocationPin, faHeart} from "@fortawesome/free-solid-svg-icons";
-import {PersonajesService} from "./services/personajes.service";
-import {EpisodiosService} from "./services/episodios.service";
-import {Personaje} from "./interfaces/personaje";
 import {DetallesComponent} from "./detalles/detalles.component";
 import {LocalizacionComponent} from "./localizacion/localizacion.component";
 
@@ -20,12 +17,14 @@ export class AppComponent implements OnInit{
   public URL: string = 'https://rickandmortyapi.com/api/character';
   public personajes: any = [];
   public episodios: any = [];
+  public descargaJson: any;
 
-  constructor(private personajesService: PersonajesService,
-              private episodiosService: EpisodiosService,
+  constructor(
               public faIconLibrary: FaIconLibrary,
               public dialog: MatDialog,
-              private httpClient: HttpClient) {}
+              private httpClient: HttpClient,
+              private sanitizer: DomSanitizer,
+  ) {}
 
   ngOnInit() {
     this.faIconLibrary.addIcons(faCircleInfo, faLocationPin, faHeart);
@@ -57,13 +56,22 @@ export class AppComponent implements OnInit{
   visualizarLocalizacion(idPersonaje: number) {
     this.dialog.open(LocalizacionComponent, {
       width: '75vw',
-      height: '75vh',
+      height: '40vh',
       data: idPersonaje
     });
   }
 
-  guardarFavorito(idPersonaje: number) {
+  async guardarFavorito(idPersonaje: number) {
+    const yourModuleName = require('file-saver');
+    let personaje = await this.httpClient.get(this.URL + '/' + idPersonaje).toPromise()
+    let json = JSON.stringify(personaje)
+    // @ts-ignore
+    let nombreArchivo = personaje.name;
+    let archivo = new Blob([JSON.stringify(json)], {
+      type: 'application/json'
+    });
 
+// Save the file
+    yourModuleName.saveAs(archivo, nombreArchivo);
   }
-
 }

@@ -10,7 +10,7 @@
                 <div class = "d-flex justify-content-between align-self-center">
                   <fa-icon [icon]="['fas','circle-info']" (click)="visualizarDetalles(personaje.id)"></fa-icon>
                   <fa-icon [icon]="['fas','location-pin']" (click)="visualizarLocalizacion(personaje.id)"></fa-icon>
-                  <fa-icon [icon]="['fas','heart']"></fa-icon>
+                  <fa-icon [icon]="['fas','heart']" (click)="guardarFavorito(personaje.id)"></fa-icon>
                 </div>
               </div>
             </div>
