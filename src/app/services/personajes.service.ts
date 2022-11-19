@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import {Observable, map, switchMap} from 'rxjs';
 import {Personaje} from "../interfaces/personaje";
 
 @Injectable({
@@ -9,12 +8,13 @@ import {Personaje} from "../interfaces/personaje";
 })
 export class PersonajesService {
 
-  private URL: string = 'https://rickandmortyapi.com/api/character';
+  public URL: string = 'https://rickandmortyapi.com/api/character';
+  public personajes: any
 
   constructor(private httpClient: HttpClient) { }
 
-  obtenerPersonajes(): Observable<any> {
-    return this.httpClient.get<any>(this.URL)
+  async obtenerPersonajes() {
+    this.personajes = await this.httpClient.get(this.URL)
   }
 
   obtenerPersonaje(idPersonaje: number): Observable<Personaje> {

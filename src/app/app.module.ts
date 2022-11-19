@@ -8,11 +8,13 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { DetallesComponent } from './detalles/detalles.component';
+import { LocalizacionComponent } from './localizacion/localizacion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetallesComponent
+    DetallesComponent,
+    LocalizacionComponent
   ],
     imports: [
         BrowserModule,

@@ -9,7 +9,7 @@
                 <mat-card-subtitle>{{personaje.status}}</mat-card-subtitle>
                 <div class = "d-flex justify-content-between align-self-center">
                   <fa-icon [icon]="['fas','circle-info']" (click)="visualizarDetalles(personaje.id)"></fa-icon>
-                  <fa-icon [icon]="['fas','location-pin']"></fa-icon>
+                  <fa-icon [icon]="['fas','location-pin']" (click)="visualizarLocalizacion(personaje.id)"></fa-icon>
                   <fa-icon [icon]="['fas','heart']"></fa-icon>
                 </div>
               </div>
@@ -18,7 +18,7 @@
           <mat-list>
             <mat-list-item>{{personaje.species}}</mat-list-item>
             <mat-list-item>{{personaje.location.name}}</mat-list-item>
-            <mat-list-item>{{personaje.episode[personaje.episode.length - 1]}}</mat-list-item>
+            <mat-list-item>Last episode: {{personaje.episode[personaje.episode.length - 1][0]}}, {{personaje.episode[personaje.episode.length - 1][1]}}</mat-list-item>
           </mat-list>
         </mat-card-content>
       </mat-card>
