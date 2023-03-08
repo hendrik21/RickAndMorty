@@ -1,14 +1,33 @@
 # RickAndMorty
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
+software version:
+- TypeScript 4.7.4
+- RXjs 7.5.7
+- Node: 18.12.0
+- Package Manager: npm 8.19.2
+- Angular CLI 14.2.9
+- Bootstrap 5
+- Angular Material 13.0.0
+- File Saver 2.0.5
+- Angular Font Awesome 0.12.0
+
+#Components
+- AppComponent: It contains the character list. There are 4 methods.
+  - constructor: it initializes some dependencies.
+  - ngOnInit: it allows to visualize some Font Awesome icons and it makes the HTTP request to get all the character data and their related episodes.
+  - visualizarDetalles: it loads the component named "detallesComponent".
+  - visualizarLocalizacion: it loads the component named "localizacionComponent".
+  - guardarFavorito: it downloads a JSON that contains an specific character data.
+- DetallesComponent: It contains more information based on an specific character that the user selected previously in app.component. There are 2 methods
+  - constructor: it initializes some dependencies.
+  - ngOnInit: It makes the HTTP request to get the character information.
+- LocalizacionComponent: It contains more information based on an specific character location. There are 2 methods
+  - constructor: it initializes some dependencies.
+  - ngOnInit: It makes the HTTP request to get the location information.
 
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run "npm install" to install all dependencies required.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. 
 
 ## Build
 
