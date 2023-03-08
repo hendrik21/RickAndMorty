@@ -9,22 +9,26 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { LocalizacionComponent } from './localizacion/localizacion.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import { EpisodioComponent } from './episodio/episodio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DetallesComponent,
-    LocalizacionComponent
+    LocalizacionComponent,
+    EpisodioComponent,
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        MatListModule,
-        FontAwesomeModule,
-        MatDialogModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatListModule,
+    FontAwesomeModule,
+    MatDialogModule,
+    MatExpansionModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

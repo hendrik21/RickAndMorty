@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {DomSanitizer, } from "@angular/platform-browser";
 import { HttpClient } from '@angular/common/http';
 import {MatDialog} from '@angular/material/dialog';
 import {FaIconLibrary} from "@fortawesome/angular-fontawesome";
@@ -23,7 +22,6 @@ export class AppComponent implements OnInit{
               public faIconLibrary: FaIconLibrary,
               public dialog: MatDialog,
               private httpClient: HttpClient,
-              private sanitizer: DomSanitizer,
   ) {}
 
   ngOnInit() {
@@ -59,19 +57,5 @@ export class AppComponent implements OnInit{
       height: '40vh',
       data: idPersonaje
     });
-  }
-
-  async guardarFavorito(idPersonaje: number) {
-    const yourModuleName = require('file-saver');
-    let personaje = await this.httpClient.get(this.URL + '/' + idPersonaje).toPromise()
-    let json = JSON.stringify(personaje)
-    // @ts-ignore
-    let nombreArchivo = personaje.name;
-    let archivo = new Blob([JSON.stringify(json)], {
-      type: 'application/json'
-    });
-
-// Save the file
-    yourModuleName.saveAs(archivo, nombreArchivo);
   }
 }
