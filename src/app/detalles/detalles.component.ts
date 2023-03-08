@@ -8,16 +8,16 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./detalles.component.css']
 })
 export class DetallesComponent implements OnInit {
-  public personaje: any
-  public URL: string = 'https://rickandmortyapi.com/api/character';
+  public personaje: any;
+  private episodio: any;
+  public URL: string = 'https://rickandmortyapi.com/api';
 
   constructor(@Inject(MAT_DIALOG_DATA) public idPersonaje: number,
               private httpClient: HttpClient
               ) { }
 
   ngOnInit(): void {
-    this.httpClient.get(this.URL + '/' + this.idPersonaje).subscribe(personaje => {
-      // @ts-ignore
+    this.httpClient.get(this.URL + '/character/' + this.idPersonaje).subscribe(personaje => {
       this.personaje = personaje;
         for (let i in this.personaje.episode) {
           this.httpClient.get(this.personaje.episode[i]).subscribe(episodios => {
@@ -29,4 +29,11 @@ export class DetallesComponent implements OnInit {
     })
   }
 
+  verDetallesEpisodio(id: any) {
+
+    this.httpClient.get(this.URL + '/episode/' + id).subscribe(episodio => {
+      this.episodio = episodio;
+      console.log(episodio);
+    })
+  }
 }
